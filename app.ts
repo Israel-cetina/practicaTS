@@ -1,42 +1,43 @@
 (function () {
-        const mifuncion = function (a: string) {
-            return a.toUpperCase();
-        }
-        // eliminamos la palabra reservada function y al ser una función de una sola línea se pueden omitir las llaves
-        const mifuncionF = (a: string) => a.toUpperCase(); //se reduce el tamaño de la función significativamente
+    /*
+    Creando objeto avenger que tiene como propiedades
+    el nombre, nombre clave y su poder
+     */
 
-        const sumaN = function (a: number, b: number) {
-            return a + b;
-        }
-
-        const sumaF = (a: number, b: number) => a + b;
-        /*
-            const hulk = {
-                nombre: "Hulk",
-               //smash es un método, básicamente es una función que puede invocar propiedades del objeto mismo al que pertenece
-               // this lo que hace es apuntar hacia el objeto mismo al que pertenece, en ete caso hulk
-                smash(){
-                    console.log(`${this.nombre} Smash!!!`);
-                }
-            }
-
-            hulk.smash(); //imprimirá Hulk Smash!!!
-            de esta forma no generará problemas, pero al agrgar una función como timeset si lo hará, ya que timeset necesita
-            una función callback en sus parámetros, entonces el this ya no apuntará hacia el objeto hulk, sino a la función
-            anónima, eso se soluciona con la función tipo flecha
-
-        */
-        const hulk = { //objeto
-            nombre: "Hulk", //propiedad
-            smash(){ //metodo
-                setTimeout( //función que tiene como parámetros la funcíon flecha que llama a console.log y el tiempo en ms
-                    () => {console.log(`${this.nombre} Smash!!!`);}, 1000
-                );
-            }
-        }
-
-        hulk.smash();
+    const avenger = {
+        nombre: "steve",
+        clave: "Capitán América",
+        poder: "super fuerza"
     }
+/*
+    desestructurar un objeto o un array es con la finalidad de utilizar sus propiedades como varibles o constantes
+    independientes
+ */
+    //función que va a extraer las propiedades del objeto
+    const extraer = ( {nombre, poder}: any ) => {
+        console.log(nombre);
+        console.log(poder);
+    }
+
+   // extraer(avenger);
+
+    //arreglo con nombres de avengers
+    const avengers: string[] = ["Thor", "Ironman", "spiderman"];
+
+    /*
+    la función tiene como argumentos variables nuevas, las cuales
+    van a almacenar un dato de array dependiento la posición
+    de esta forma thor recibirá el dato de la primera posición del
+    array y así sucesivamente.
+     */
+    const extraerArr = ([thor, ironman, spiderman]: string[]) => {
+        console.log(thor);
+        console.log(ironman);
+        console.log(spiderman);
+    }
+
+    extraerArr(avengers);
+}
 )();
 
 
